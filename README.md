@@ -4,7 +4,26 @@ Q1. How to compare two JSON have the same properties without order?
 var obj1 = { name: "Person 1", age:5 };
 var obj2 = { age:5, name: "Person 1" };
 
+Ans-
 
+            var obj1 = { name: "Person 1", age:5 };
+            var obj2 = { age:5, name: "Person 1" };
+
+            console.log(isEqual(obj1, obj2));
+
+            function isEqual(obj1, obj2) {
+              if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+                return "Both objects are not same";
+              }
+              for (let key in obj1) {
+                if (obj1[key] == obj2[key]) {
+                 return "Both objects are same";
+                }
+              }
+              return "Both objects are not same";
+            }
+            
+            
 Q2. Use the rest countries API url -> https://restcountries.eu/rest/v2/all and display all the country flags in console
 
 Ans-
